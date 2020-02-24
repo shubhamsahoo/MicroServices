@@ -1,6 +1,6 @@
 package com.techouts.security;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,8 +10,8 @@ import com.techouts.bo.UserBO;
 
 @Repository
 public interface UserRepository extends CrudRepository<UserBO, Long> {
-	@Query(value = "SELECT u FROM user u WHERE u.userName = ?1 and u.password = ?2")
-	Optional<UserBO> findByUserNameAndPassword(String userName, String password);
+	public List<UserBO> findByUserName(String userName);
 
-	Optional<UserBO> findByAccessToken(String accessToken);
+	@Query(countQuery = "select count(*) from user u where u.userName = ?1 and u.password in (?2)")
+	long countByUserNameAndPassword(String userName, String password);
 }

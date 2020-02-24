@@ -5,6 +5,7 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql:///main-db
+    #url: jdbc:mysql:///main-db
+    url: jdbc:mysql:///techouts
     username: root
     password: root

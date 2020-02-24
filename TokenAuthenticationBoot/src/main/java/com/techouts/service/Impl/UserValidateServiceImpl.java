@@ -18,25 +18,24 @@ public class UserValidateServiceImpl implements UserValidateService {
 
 	@Override
 	public String login(String username, String password) {
-		Optional<UserBO> user = customerRepository.findByUserNameAndPassword(username, password);
-		if (user.isPresent()) {
-			String token = UUID.randomUUID().toString();
-			UserBO custom = user.get();
-			custom.setAccessToken(token);
-			customerRepository.save(custom);
-			return token;
-		}
-		return StringUtils.EMPTY;
+		/*
+		 * Optional<UserBO> user =
+		 * customerRepository.findByUserNameAndPassword(username, password); if
+		 * (user.isPresent()) { String token = UUID.randomUUID().toString(); UserBO
+		 * custom = user.get(); custom.setAccessToken(token);
+		 * customerRepository.save(custom); return token; }
+		 */
+		long count = customerRepository.countByUserNameAndPassword(username, password);
+		return count + "";
 	}
 
 	@Override
 	public Optional<UserBO> findByToken(String token) {
-		Optional<UserBO> customer = customerRepository.findByAccessToken(token);
-		if (customer.isPresent()) {
-			UserBO customer1 = customer.get();
-			UserBO user = new UserBO();
-			return Optional.of(user);
-		}
+		/*
+		 * Optional<UserBO> customer = customerRepository.findByAccessToken(token); if
+		 * (customer.isPresent()) { UserBO customer1 = customer.get(); UserBO user = new
+		 * UserBO(); return Optional.of(user); }
+		 */
 		return Optional.empty();
 	}
 }
