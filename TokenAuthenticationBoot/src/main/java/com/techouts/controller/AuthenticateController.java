@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.techouts.service.UserValidateService;
 
 @Controller
-@RequestMapping("/Authenticate")
+//@RequestMapping("/Authenticate")
 public class AuthenticateController {
 
 	@Autowired
@@ -22,5 +22,10 @@ public class AuthenticateController {
 	public String login(final HttpServletRequest req, final Map<String, Object> map) {
 		service.login(req.getParameter("username"), req.getParameter("password"));
 		return "welcome";
+	}
+
+	@RequestMapping("/logoutuser")
+	public String logout() {
+		return "logout";
 	}
 }
