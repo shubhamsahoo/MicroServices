@@ -14,21 +14,29 @@ import com.techouts.service.UserValidateService;
 @Service
 public class UserValidateServiceImpl implements UserValidateService {
 	@Autowired
-	UserRepository customerRepository;
+	UserRepository userRepository;
 
 	@Override
 	public String login(String username, String password) {
 
-		long count = customerRepository.countByUserNameAndPassword(username, password);
+		long count = userRepository.countByUserNameAndPassword(username, password);
 		if (count > 0) {
 			String token = UUID.randomUUID().toString();
-			UserBO custom = customerRepository.getUserByUserNameAndPassword(username, password);
+			UserBO custom = userRepository.getUserByUserNameAndPassword(username, password);
 			custom.setAccessToken(token);
 			custom.setLoginTime(new java.sql.Date(new java.util.Date().getTime()));
-			customerRepository.save(custom);
+			userRepository.save(custom);
 			return token;
 		}
+		return StringUtils.EMPTY;
+	}
 
+	@Override
+	public String logout(String accessToken) {
+		UserBO user = userRepository.getUserByAccessToken(accessToken);
+		user.setAccessToken("");
+		user.setLoginTime(null);
+		userRepository.save(user);
 		return StringUtils.EMPTY;
 	}
 

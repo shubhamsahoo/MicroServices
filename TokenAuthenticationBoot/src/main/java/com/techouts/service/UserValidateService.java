@@ -8,4 +8,6 @@ public interface UserValidateService {
 	public String login(String username, String password);
 
 	public Optional<UserBO> findByToken(String token);
+
+	public String logout(String accessToken);
 }
