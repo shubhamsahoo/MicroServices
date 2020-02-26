@@ -32,7 +32,7 @@ public class MailServiceImpl implements MailService {
 		// prepare Email messages
 		message = sender.createMimeMessage();
 		helper = new MimeMessageHelper(message, true);
-		helper.setFrom(new InternetAddress("litusahu12341234@gmail.com"));
+		helper.setFrom(new InternetAddress("shubhamsahoo19981@gmail.com"));
 		helper.setTo(new InternetAddress(ToEmail));
 		helper.setSubject("Shubham:: Java Mail Integration");
 		helper.setText(msg);
