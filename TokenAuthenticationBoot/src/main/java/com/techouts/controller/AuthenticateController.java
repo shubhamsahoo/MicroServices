@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.techouts.service.MailService;
 import com.techouts.service.UserValidateService;
 
 @Controller
@@ -19,6 +20,26 @@ public class AuthenticateController {
 
 	@Autowired
 	private UserValidateService service;
+
+	@Autowired
+	private MailService mailService;
+
+	@GetMapping("/getToken")
+	public void getToken(final HttpServletRequest req, final Map<String, Object> map) throws Exception {
+		String token = mailService.send("", req.getParameter("mail"));
+		HttpSession session = req.getSession(true);
+		session.setAttribute("accessToken", token);
+	}
+
+	@GetMapping("/emailLogin")
+	public String loginByEmail(final HttpServletRequest req, final Map<String, Object> map) {
+		String accessToken = req.getParameter("token");
+		HttpSession session = req.getSession(true);
+		String storedToken = (String) session.getAttribute("accessToken");
+		if (storedToken.equals(accessToken))
+			return "welcome";
+		return null;
+	}
 
 	@GetMapping("/user")
 	public String login(final HttpServletRequest req, final Map<String, Object> map) {
