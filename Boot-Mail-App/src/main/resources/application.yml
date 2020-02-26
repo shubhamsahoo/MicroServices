@@ -1,0 +1,31 @@
+# java mail propertoies
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#mail.smtp.port=25
+#spring.mail.username=aimsarbaj@gmail.com
+#spring.mail.password=8484849693
+#spring.mail.properties.mail.smtp.starttls.enable=true
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.connectiontimeout=5000
+#spring.mail.properties.mail.smtp.timeout=5000
+#spring.mail.properties.mail.smtp.writetimeout=5000
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: litusahu12341234@gmail.com
+    password: mrshubhamji
+    properties:
+      mail: 
+        smtp:
+          port: 25
+          auth: true
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+          starttls:
+            enable: true
+#mail:
+ # smtp:
+  #  port: 25
