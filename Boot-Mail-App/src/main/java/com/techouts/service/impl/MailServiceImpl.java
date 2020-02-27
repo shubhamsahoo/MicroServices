@@ -22,7 +22,7 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public String send(String message, String toEmail) throws Exception {
 		// String toMail = "satyabratarout196@gmail.com";
-		sendEmail(toEmail, "Hey <br>" + "Satyabrata Das <br>" + "I Love U darling");
+		sendEmail(toEmail, "Hey \n" + "Satyabrata Das");
 		return null;
 	}
 
@@ -32,7 +32,7 @@ public class MailServiceImpl implements MailService {
 		// prepare Email messages
 		message = sender.createMimeMessage();
 		helper = new MimeMessageHelper(message, true);
-		helper.setFrom(new InternetAddress("shubhamsahoo19981@gmail.com"));
+		helper.setFrom(new InternetAddress("shubham.s@techouts.com"));
 		helper.setTo(new InternetAddress(ToEmail));
 		helper.setSubject("Shubham:: Java Mail Integration");
 		helper.setText(msg);

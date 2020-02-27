@@ -14,7 +14,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: shubhamsahoo19981@gmail.com
+    username: shubham.s@techouts.com
     password: mrshubhamji
     properties:
       mail: 
@@ -24,6 +24,11 @@ spring:
           connectiontimeout: 10000
           timeout: 10000
           writetimeout: 10000
+         # socketFactory:
+          #  port: 465
+           # class: javax.net.ssl.SSLSocketFactory
+            #fallback: false
+          
           starttls:
             enable: true
 #mail:
