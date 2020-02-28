@@ -1,0 +1,24 @@
+#spring.social.facebook.appId=189174802350384
+#spring.social.facebook.appSecret=8d5c97bad0608a571a850cb56971bfbc
+#security.required-ssl=true
+
+
+#spring.social.facebook.appId=133533464681546
+#spring.social.facebook.appSecret=5c107bfa301c98748e781eec46495e19
+#security.required-ssl=true
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          facebook:
+#            client-id: 133533464681546
+#            client-secret: 5c107bfa301c98748e781eec46495e19
+spring: 
+  social:
+    facebook: 
+        appId: 133533464681546
+        appSecret: 5c107bfa301c98748e781eec46495e19
+            
+            
