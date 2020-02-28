@@ -20,7 +20,7 @@ public class BootMailAppApplication {
 		mail = ctx.getBean("sender", MailService.class);
 		try {
 			// invoke method
-			System.out.println(mail.send("", "shubhamsahoo1998@gmail.com"));
+			System.out.println(mail.send("", "shubham.s@techouts.com"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

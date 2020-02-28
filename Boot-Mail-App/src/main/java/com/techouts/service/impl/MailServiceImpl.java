@@ -22,23 +22,31 @@ public class MailServiceImpl implements MailService {
 	@Override
 	public String send(String message, String toEmail) throws Exception {
 		// String toMail = "satyabratarout196@gmail.com";
-		sendEmail(toEmail, "Hey \n" + "Satyabrata Das");
-		return null;
+		return sendEmail(toEmail,
+				"<h1 style='color:red;text-align:center;'>Hey Ravi Ranjan</h1> "
+						+ "<h1 style='color:red;text-align:center;'>Hey Ravi Ranjan</h1>"
+						+ "<h1 style='color:blue;text-align:center;'>Hey Ravi Ranjan</h1>"
+						+ "<h1 style='color:yellow;text-align:center;'>Hey Ravi Ranjan</h1>"
+						+ "<h1 style='color:green;text-align:center;'>Hey Ravi Ranjan</h1>"
+						+ "<h3 style='text-align:center;'><a href='www.google.com'>google</a></h3>");
 	}
 
-	private void sendEmail(String ToEmail, String msg) throws Exception {
+	private String sendEmail(String ToEmail, String msg) throws Exception {
 		MimeMessageHelper helper = null;
 		MimeMessage message = null;
 		// prepare Email messages
 		message = sender.createMimeMessage();
 		helper = new MimeMessageHelper(message, true);
-		helper.setFrom(new InternetAddress("shubham.s@techouts.com"));
+		helper.setFrom(new InternetAddress("shubhamsahoo19981@gmail.com"));
 		helper.setTo(new InternetAddress(ToEmail));
 		helper.setSubject("Shubham:: Java Mail Integration");
-		helper.setText(msg);
 		helper.setSentDate(new Date());
+		//		helper.setText(msg);
+		helper.setText(msg, true);
 		helper.addAttachment("ford.jpg", new ClassPathResource("ford-mustang.jpg"));
+		helper.addAttachment("ford1.jpg", new ClassPathResource("ford-mustang2.jpg"));
+		helper.addAttachment("ford2.jpg", new ClassPathResource("ford-mustang3.jpg"));
 		sender.send(message);
-		System.out.println("mail has been delivered");
+		return "mail has been delivered";
 	}
 }
