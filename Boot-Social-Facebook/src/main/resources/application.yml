@@ -21,4 +21,9 @@ spring:
         appId: 133533464681546
         appSecret: 5c107bfa301c98748e781eec46495e19
             
-            
+  mvc:
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+server:
+  port: 8102
