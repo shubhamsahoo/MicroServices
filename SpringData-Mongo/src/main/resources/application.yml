@@ -1,0 +1,36 @@
+server:
+  port: 5454
+spring: 
+  data:
+    mongodb:
+      database: techouts_db
+      host: localhost
+      port: 27017
+      
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: test-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      
+  mvc:
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+      
+listener:
+  topic: techouts-test
+consumer:
+  group: test-consumer-group-1
+tomcat: 
+  shutdown-file-name: shutdown.bat
+  starting-file-name: startup.bat
+  url1: localhost:8181
+  url2: localhost:8382
