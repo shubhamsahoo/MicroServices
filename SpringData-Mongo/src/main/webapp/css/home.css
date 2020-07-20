@@ -1,0 +1,311 @@
+
+.modal-dialog {
+    max-width: 900px !important;
+    margin: 1.75rem auto;
+  }
+
+.addedproperty{
+  margin:2% 0%;
+}
+.propertytextarea{
+  width:100%;
+}
+.spaceremove{
+  padding:5px;
+}
+.spaceinnerremove{
+  padding:0px;
+}
+.modal-title{
+  text-align: center;
+}
+.editsubsection > li >a:hover {
+    text-decoration: none;
+}
+
+.cluster-body {
+    padding: 0px;
+}
+
+.editsubsection > li >a {
+    color: white;
+    padding: 10px;
+    background-color: black;
+}
+
+.editsubsection > li {
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.editsubsection {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-align: right;
+    font-size: 20px;
+}
+
+.editbutton1, .editbutton2, .editbutton3 {
+    background-color: #ffffff;
+    color: black !important;
+    border: 1px solid white !important;
+    padding: 5px 10px !important;
+}
+
+.editbutton1:hover {
+    background-color: transparent;
+    color: white !important;
+    border: 2px solid transparent;
+    box-sizing: border-box
+}
+.editbutton2:hover {
+    background-color: transparent;
+    color: white !important;
+    border: 2px solid transparent;
+    box-sizing: border-box
+}
+.editbutton3:hover {
+    background-color: transparent;
+    color: white !important;
+    border: 2px solid transparent;
+    box-sizing: border-box
+}
+
+.myedit1,
+.myedit2,
+.myedit3 {
+    width: 10%;
+    height: 100px;
+    color: black;
+    text-overflow: ellipsis;
+}
+
+.edittick1, .edittick2, .edittick3 {
+    color: white;
+    font-size: 20px;
+}
+
+.mynavbar {
+    background-color: black !important;
+}
+
+.clustersection,
+.clustermain-content {
+    margin-top: 5%;
+}
+
+.clustermain-content {
+    padding: 1% 3%;
+}
+
+.clustertabs {
+    display: none;
+}
+
+.clustertabs > li {
+    width: 25%;
+    background-color: black;
+}
+
+.clustertabs > li > a {
+    color: white !important;
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    border: 0px !important;
+}
+
+.clustertabs .clusteritem.show .cluster-link,
+.clustertabs .cluster-link.active {
+    background-color: black !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.clustertabs .cluster-link {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+
+.removepaddding {
+    padding: 0px;
+}
+
+.updatedsitetext {
+    padding-bottom: 1px;
+}
+.updatedtext {
+    margin-top: 2%;
+}
+
+
+
+
+
+@media(min-width:768px) {
+    .clustertabs {
+        display: flex;
+    }
+    .clustercard {
+        border: none;
+    }
+    .clustercard .cluster-header {
+        display: none;
+    }
+    .clustercard .collapse {
+        display: block;
+    }
+}
+
+@media(max-width:767px) {
+    .clustermain-content > .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+}
+
+@media(max-width:480px) {
+    .cluster-header {
+        background-color: black;
+    }
+    .cluster-header > h5 > a {
+        color: white !important;
+    }
+}
+
+
+/* cluster inner css starts*/
+
+.innertabs {
+    display: none;
+}
+
+@media(min-width:768px) {
+    .innertabs {
+        display: flex;
+    }
+    .innercard {
+        border: none;
+    }
+    .innercard .innercardheader {
+        display: none;
+    }
+    .innercard .collapse {
+        display: block;
+    }
+}
+
+@media(max-width:767px) {
+    .innertabcontent > .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+}
+
+.innertabs > li {
+    width: 100%;
+    background-color: white;
+}
+
+.innertabs .innerlink {
+    color: #715041 !important;
+    text-align: center;
+}
+
+.innertabcontent {
+    border: 1px solid grey;
+}
+
+.tableheadings {
+    text-align: center;
+}
+
+.tableheadingssection {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+
+/* .innertabs .inneritem{
+
+} */
+
+.innertabs .innerlink.active {
+    background: linear-gradient(to right, #ff5d3b 0, #ff2c65 100%);
+    color: white !important;
+    font-weight: bold;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.inneritem {
+    border: 1px solid grey;
+}
+
+@media(max-width:480px) {
+    .innercardbody {
+        overflow: auto;
+        overflow-y: hidden;
+    }
+}
+
+
+/* cluster inner css ends */
+/* modal css starts */
+.modaltabs {
+  display:none;
+}
+
+@media(min-width:768px) {
+  .modaltabs {
+      display: flex;
+  }
+
+  .modalcard {
+      border: none;
+  }
+
+  .modalcard .modalcardheader {
+      display:none;
+  }
+
+  .modalcard .collapse{
+      display:block;
+  }
+}
+
+@media(max-width:767px){
+  .modal-content > .tab-pane {
+      display: block !important;
+      opacity: 1;
+  }
+}
+.modaltabs > .modal-item{
+  background-color:black !important;
+}
+.modaltabs > .modal-item > a{
+  color:white !important;
+}
+.modaltabs .modal-link.active{
+  background-color:white;
+  color:#e58b67 !important;
+  border:1px solid black !important;
+}
+/* modal css ends */
+.showingArrow{
+  position: relative;
+  text-align: center;
+  display: none;
+}
+.showingArrow img{
+  width: 20px;
+  position: absolute;
+  top: 0px;
+}
+.cluster-link.active + .showingArrow{
+  display: block;
+}

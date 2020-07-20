@@ -1,0 +1,4 @@
+server:  port: 8080  servlet:    context-path: /connector/api/v1
+#URL Mappings  mapping:    user-controller: /user      create-user: /create    fetch-user: /get    update-user: /update    delete-user: /delete    
+#MongoDB Propertiesspring:  data:    mongodb:      host: localhost      database: project_connection      port: 27017#Logging Properties
+logging:  level:    org.springframework: ERROR  pattern:    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"  file:    name: src/main/resources/logs/application-logging.log
