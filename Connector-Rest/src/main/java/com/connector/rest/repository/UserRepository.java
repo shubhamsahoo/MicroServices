@@ -10,4 +10,8 @@ import com.connector.rest.bo.UserBO;
 @Document(collection = "users")
 public interface UserRepository extends MongoRepository<UserBO, Long> {
 
+	int countByMobileNumberAndPassword(long mobileNumber, String password);
+
+	UserBO findByMobileNumberAndPassword(long mobileNumber, String password);
+
 }

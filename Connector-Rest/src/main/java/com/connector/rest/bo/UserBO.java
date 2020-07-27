@@ -1,12 +1,16 @@
 package com.connector.rest.bo;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,36 +24,31 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @Document(collection = "users")
+@Entity
 public class UserBO {
 
-	@Id
+	@MongoId
 	private String userId;
 
+	@NotNull(message = "First name could not be null")
+	@Size(min = 2, message = "First Name Should have at least two characters")
 	private String firstName;
-	@Column(name = "middle_name", nullable = true)
 	private String middleName;
-	@Column(name = "last_name", nullable = false)
+	@NotNull(message = "Last name could not be null")
 	private String lastName;
-	@Column(name = "mob_no", nullable = true)
 	private long mobileNumber;
-	@Column(name = "email_id", nullable = true)
+	@NotEmpty
+	@Email(regexp = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")
 	private String emailId;
-	@Column(name = "gender", nullable = false)
+	@NotEmpty
 	private String gender;
-	@Column(name = "dob", nullable = false)
 	private Date dob;
-	@Column(name = "status", nullable = true)
 	private String status;
-	@Column(name = "current_address", nullable = true)
 	private String currentAddress;
-	@Column(name = "home_address", nullable = true)
 	private String homeAddress;
-	@Column(name = "password", nullable = false)
+	@NotEmpty
 	private String password;
-	@Column(name = "profile_pic", nullable = true)
 	private String profilePicPath;
-	@Column(name = "cover_pic", nullable = true)
 	private String coverPicPath;
-	@Column(name = "joining_date", nullable = false)
 	private LocalDateTime userCreationDateAndTime;
 }
