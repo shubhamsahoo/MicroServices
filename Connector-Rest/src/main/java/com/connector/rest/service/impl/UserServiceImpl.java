@@ -28,15 +28,14 @@ public final class UserServiceImpl implements UserService {
 		UserBO bo = new UserBO();
 		// convert DTO to BO
 		BeanUtils.copyProperties(dto, bo);
-		// convert util date to sql date
-		bo.setDob(new java.sql.Date(dto.getDob().getTime()));
 		// add the bo to data base
 		return userRepository.save(bo);
 	}
 
 	@Override
 	public boolean isUserPresentByMobileNumberAndPassword(long mobileNumber, String password) {
-		return false;
+		int result = userRepository.countByMobileNumberAndPassword(mobileNumber, password);
+		return result > 0;
 	}
 
 	@Override
@@ -51,6 +50,14 @@ public final class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDTO findUserByMobileNoAndPassword(long mobileNumber, String password) {
+		UserDTO dto = new UserDTO();
+		UserBO bo = null;
+		int result = userRepository.countByMobileNumberAndPassword(mobileNumber, password);
+		if (result > 0) {
+			bo = userRepository.findByMobileNumberAndPassword(mobileNumber, password);
+			BeanUtils.copyProperties(bo, dto);
+			return dto;
+		}
 		return null;
 	}
 
